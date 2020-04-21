@@ -1,7 +1,9 @@
 #include "blocksWorld.h"
 
 int * create(int n){
-  return NULL;
+  int array[1];
+  int * p = array;
+  return p;
 }
 
 
