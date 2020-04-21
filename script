@@ -38,7 +38,7 @@ echo "" >> $makeFile
 echo "" >> $makeFile
 echo "" >> $makeFile
 echo "CC="$compiler >> $makeFile
-echo "CFLAGS=-Wall -std=c11" >> $makeFile
+echo "CFLAGS= -g -c -Wall -std=c11 -O0 -fprofile-arcs -ftest-coverage" >> $makeFile
 echo "EXE="$source >> $makeFile
 objectsout=""
  
