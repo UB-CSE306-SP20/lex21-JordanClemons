@@ -1,0 +1,82 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+   then 
+    echo $"Please enter what compiler to use: "
+    echo ""
+    read compiler
+    
+else 
+   compiler=$1
+fi
+ 
+if [ -z "$2" ]
+   then
+    echo Please enter what C source code file to use: 
+    echo ""
+    read source
+
+else
+    source=$2
+fi
+
+if [ -z "$3" ]
+   then
+    echo Please enter the name of makeFile to generate: 
+    echo ""
+    read makeFile
+else
+    makeFile=$3
+fi
+
+touch $makeFile
+echo "#Makefile generated automatically by this cool script" >> $makeFile 
+echo "" >> $makeFile
+echo "" >> $makeFile
+echo "#Variables used" >> $makeFile
+echo "" >> $makeFile
+echo "" >> $makeFile
+echo "" >> $makeFile
+echo "CC="$compiler >> $makeFile
+echo "CFLAGS=-Wall -std=c11" >> $makeFile
+echo "EXE="$source >> $makeFile
+objectsout=""
+ 
+for f in *.c; 
+   do
+    objects=$(basename $f .c)
+    if [ "$source" != "$objects" ]; then
+    objectsout=$objectsout${objects}".o "
+    fi
+    
+done
+
+echo "OBJECTS="  $objectsout >> $makeFile
+echo "" >> $makeFile
+echo "" >> $makeFile
+echo "" >> $makeFile
+echo "" >> $makeFile
+echo "# Recipes" >> $makeFile 
+echo "" >> $makeFile
+echo "" >> $makeFile
+for f in *.c;
+   do
+    objects=$(basename $f)
+    cc -MM $objects >> $makeFile
+    echo -e '\t''$(CC) $(CFLAGS) -c' $objects >> $makeFile
+    echo "" >> $makeFile
+    echo "" >> $makeFile
+done
+
+echo 'main: $(OBJECTS)' >> $makeFile
+echo -e '\t' '$(CC) -o $(EXE) $(OBJECTS) $(EXE).c' >> $makeFile
+echo "" >> $makeFile
+echo '# PHONY targets' >> $makeFile
+echo "" >> $makeFile
+echo "" >> $makeFile
+echo '.PHONY: clean' >> $makeFile
+echo "clean:" >> $makeFile
+echo -e '\t' 'rm -rf *~ $(OBJECTS) $(EXE)' >> $makeFile
+echo "" >> $makeFile
+echo "" >> $makeFile
+echo '#End of make' >> $makeFile

@@ -1,4 +1,4 @@
-#include "blocksWorld.c"
+#include "blocksWorld.h"
 
 int * create(int n){
   return NULL;
