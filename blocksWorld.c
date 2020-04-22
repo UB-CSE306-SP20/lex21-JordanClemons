@@ -19,7 +19,7 @@ bool onTable(int m, int * world, int worldSize){
 }
 
 bool open(int m, int * world, int worldSize){
-  if(m == 0){return true;}
+  if(world[m] == 0){return true;}
   for(int x = 0; x < worldSize; x++){
     if(world[x] == m)
       {
@@ -52,8 +52,8 @@ bool above(int m, int n, int * world, int worldSize){
 
 
   int * move(int m, int n, int * world, int worldSize){
-       if ((open(m, world, worldSize)) && (open(n, world, worldSize))){
-	 world[m] = n;
+     if ((open(m, world, worldSize)) && (open(n, world, worldSize))){
+	 world[m] *= n;
       } 
   return world;
 }

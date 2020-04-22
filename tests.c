@@ -71,6 +71,19 @@ void aboveTest(void){
   
 }
 
+//Whitebox testing
+
+void multipleMoves(void){
+  int * world = create(10);
+  world = move(2,3, world, 10);
+  world = move(4,2,world, 10);
+  bool retVal = above(4,3,world, 10);
+  CU_ASSERT_EQUAL(retVal, true);
+  world = move(4,1,world, 10);
+  retVal = above(4,3,world, 10);
+  CU_ASSERT_EQUAL(retVal, false);
+}
+
 
 /* The main() function for setting up and running the tests.
  * Returns a CUE_SUCCESS on successful running, another
@@ -98,6 +111,7 @@ int main()
       ||(NULL == CU_add_test(Suite, "open test", openTest))
       ||(NULL == CU_add_test(Suite, "on test", onTest))
       ||(NULL == CU_add_test(Suite, "above test", aboveTest)) 
+      ||(NULL == CU_add_test(Suite, "multiple move test", multipleMoves))
 
 
 
