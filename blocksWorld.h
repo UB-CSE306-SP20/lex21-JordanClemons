@@ -20,6 +20,6 @@ int on(int m);  //returns 0 if m is on the table and n if m is on block n, if er
 bool above(int m, int n);  //returns true if m is directly on n, or if m is directly on x and x is above n, false otherwise
 
 
-void move(int m, int n);  //moves m onto n iff both blocks are open and in range, no effect otherwise
+int * move(int m, int n);  //moves m onto n iff both blocks are open and in range, no effect otherwise
 
   

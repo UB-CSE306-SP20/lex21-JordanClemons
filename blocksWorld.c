@@ -27,7 +27,9 @@ bool above(int m, int n){
 }
 
 
-void move(int m, int n){
-  return;
+int * move(int m, int n){
+  int array[1];
+  int * p = array;
+  return p;
 }
 
