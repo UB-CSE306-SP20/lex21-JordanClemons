@@ -19,54 +19,54 @@ void createTest(void){
 
 void onTableTest(void){
   int * createVal = create(5);
-  bool retVal = onTable(0);
+  bool retVal = onTable(0, createVal);
   CU_ASSERT_EQUAL(retVal, false);
-  retVal = onTable(3);
+  retVal = onTable(3, createVal);
   CU_ASSERT_EQUAL(retVal, true);
-  retVal = onTable(6);
+  retVal = onTable(6, createVal);
   CU_ASSERT_EQUAL(retVal, false);
-  createVal = move(1,2);
-  retVal = onTable(1);
+  createVal = move(1,2, createVal);
+  retVal = onTable(1, createVal);
   CU_ASSERT_EQUAL(retVal, false);
-  retVal = onTable(2);
+  retVal = onTable(2, createVal);
   CU_ASSERT_EQUAL(retVal, true);
   
 }
 
 void openTest(void){
   int * createVal = create(5);
-  bool retVal = open(0);
+  bool retVal = open(0, createVal);
   CU_ASSERT_EQUAL(retVal, true);
   for(int x = 0; x < 5; x++){
-    retVal = open(x);
+    retVal = open(x, createVal);
     CU_ASSERT_EQUAL(retVal, true);
   }
-  createVal = move(2,3);
-  retVal = open(3);
+  createVal = move(2,3, createVal);
+  retVal = open(3, createVal);
   CU_ASSERT_EQUAL(retVal, false);
 
 }
 
 void onTest(void){
   int * createVal = create(5);
-  int retVal = on(6);
+  int retVal = on(6, createVal);
   CU_ASSERT_EQUAL(retVal, 6);
   for(int x = 0; x < 5; x++){
-    retVal = on(x);
+    retVal = on(x, createVal);
     CU_ASSERT_EQUAL(retVal, 0);
   }
-  createVal = move(2,3);
-  retVal = on(2);
+  createVal = move(2,3, createVal);
+  retVal = on(2, createVal);
   CU_ASSERT_EQUAL(retVal, 3);
 
 }
 
 void aboveTest(void){
   int * createVal = create(5);
-  bool retVal = above(1,2);
+  bool retVal = above(1,2, createVal);
   CU_ASSERT_EQUAL(retVal, false);
-  createVal = move(1,2);
-  retVal = above(1,2);
+  createVal = move(1,2, createVal);
+  retVal = above(1,2, createVal);
   CU_ASSERT_EQUAL(retVal, true);
   
 }

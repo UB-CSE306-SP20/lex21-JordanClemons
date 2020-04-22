@@ -7,27 +7,27 @@ int * create(int n){
 }
 
 
-bool onTable(int m){
+bool onTable(int m, int * world){
   return false;
 }
 
 
-bool open(int m){
+bool open(int m, int * world){
   return false;
 }
 
 
-int on(int m){
+int on(int m, int * world){
   return -1;
 }
 
 
-bool above(int m, int n){
+bool above(int m, int n, int * world){
   return false;
 }
 
 
-int * move(int m, int n){
+int * move(int m, int n, int * world){
   int array[1];
   int * p = array;
   return p;
