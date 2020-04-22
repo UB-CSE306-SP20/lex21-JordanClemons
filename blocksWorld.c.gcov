@@ -1,0 +1,161 @@
+        -:    0:Source:blocksWorld.c
+        -:    0:Graph:blocksWorld.gcno
+        -:    0:Data:-
+        -:    0:Runs:0
+        -:    0:Programs:0
+        -:    1:#include "blocksWorld.h"
+        -:    2:
+function create called 0 returned 0% blocks executed 0%
+    #####:    3:int * create(int n){
+    $$$$$:    3-block  0
+    #####:    4:  int array[n];
+    #####:    5:  for(int x = 0; x < n; x++){
+    $$$$$:    5-block  0
+unconditional  0 never executed
+    $$$$$:    5-block  1
+unconditional  1 never executed
+    $$$$$:    5-block  2
+branch  2 never executed
+branch  3 never executed
+    #####:    6:    array[x] = 0;
+        -:    7:  }
+    #####:    8:  int * p = array;
+    #####:    9:  return p;
+    $$$$$:    9-block  0
+unconditional  0 never executed
+        -:   10:  
+        -:   11:}
+        -:   12:
+        -:   13:
+function onTable called 0 returned 0% blocks executed 0%
+    #####:   14:bool onTable(int m, int * world, int worldSize){
+    $$$$$:   14-block  0
+    #####:   15:  if(m == 0){return false;}
+    $$$$$:   15-block  0
+branch  0 never executed
+branch  1 never executed
+    $$$$$:   15-block  1
+unconditional  2 never executed
+    #####:   16:  else if(m < 0 || m >= worldSize){return false;}
+    $$$$$:   16-block  0
+branch  0 never executed
+branch  1 never executed
+    $$$$$:   16-block  1
+branch  2 never executed
+branch  3 never executed
+    $$$$$:   16-block  2
+unconditional  4 never executed
+    #####:   17:  else if(world[m] == 0){return true;}
+    $$$$$:   17-block  0
+branch  0 never executed
+branch  1 never executed
+    $$$$$:   17-block  1
+unconditional  2 never executed
+    #####:   18:  else{return false;}
+    $$$$$:   18-block  0
+unconditional  0 never executed
+        -:   19:}
+        -:   20:
+function open called 0 returned 0% blocks executed 0%
+    #####:   21:bool open(int m, int * world, int worldSize){
+    $$$$$:   21-block  0
+    #####:   22:  if(world[m] == 0){return true;}
+    $$$$$:   22-block  0
+branch  0 never executed
+branch  1 never executed
+    $$$$$:   22-block  1
+unconditional  2 never executed
+    #####:   23:  for(int x = 0; x < worldSize; x++){
+    $$$$$:   23-block  0
+unconditional  0 never executed
+    $$$$$:   23-block  1
+unconditional  1 never executed
+    $$$$$:   23-block  2
+branch  2 never executed
+branch  3 never executed
+    #####:   24:    if(world[x] == m)
+    $$$$$:   24-block  0
+branch  0 never executed
+branch  1 never executed
+        -:   25:      {
+    #####:   26:	return false;
+    $$$$$:   26-block  0
+unconditional  0 never executed
+        -:   27:      }
+        -:   28:    
+        -:   29:      } 
+    #####:   30:    return true; 
+    $$$$$:   30-block  0
+unconditional  0 never executed
+        -:   31:}
+        -:   32:
+        -:   33:
+function on called 0 returned 0% blocks executed 0%
+    #####:   34:int on(int m, int * world, int worldSize){
+    $$$$$:   34-block  0
+        -:   35:  /*bool table = onTable(m, world, worldSize);
+        -:   36:    if (table){ return 0;} */
+    #####:   37:  if(m < 0 || m >= worldSize){return m;}
+    $$$$$:   37-block  0
+branch  0 never executed
+branch  1 never executed
+    $$$$$:   37-block  1
+branch  2 never executed
+branch  3 never executed
+    $$$$$:   37-block  2
+unconditional  4 never executed
+    #####:   38:  return world[m];
+    $$$$$:   38-block  0
+unconditional  0 never executed
+        -:   39:
+        -:   40:}
+        -:   41:
+        -:   42:
+function above called 0 returned 0% blocks executed 0%
+    #####:   43:bool above(int m, int n, int * world, int worldSize){
+    $$$$$:   43-block  0
+    #####:   44:  while(world[m] != 0){
+    $$$$$:   44-block  0
+unconditional  0 never executed
+    $$$$$:   44-block  1
+branch  1 never executed
+branch  2 never executed
+    #####:   45:    if (world[m] == n){return true;}
+    $$$$$:   45-block  0
+branch  0 never executed
+branch  1 never executed
+    $$$$$:   45-block  1
+unconditional  2 never executed
+        -:   46:    else {
+    #####:   47:      m= world[m]; 
+    $$$$$:   47-block  0
+unconditional  0 never executed
+        -:   48:    }
+        -:   49:  }
+    #####:   50:  return false;
+    $$$$$:   50-block  0
+unconditional  0 never executed
+        -:   51:}
+        -:   52:
+        -:   53:
+function move called 0 returned 0% blocks executed 0%
+    #####:   54:  int * move(int m, int n, int * world, int worldSize){
+    $$$$$:   54-block  0
+    #####:   55:     if ((open(m, world, worldSize)) && (open(n, world, worldSize))){
+    $$$$$:   55-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:   55-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   56:	 world[m] = n;
+    $$$$$:   56-block  0
+unconditional  0 never executed
+        -:   57:      } 
+    #####:   58:  return world;
+    $$$$$:   58-block  0
+unconditional  0 never executed
+        -:   59:}
+        -:   60:

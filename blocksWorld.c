@@ -53,7 +53,7 @@ bool above(int m, int n, int * world, int worldSize){
 
   int * move(int m, int n, int * world, int worldSize){
      if ((open(m, world, worldSize)) && (open(n, world, worldSize))){
-	 world[m] *= n;
+	 world[m] = n;
       } 
   return world;
 }
