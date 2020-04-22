@@ -19,54 +19,54 @@ void createTest(void){
 
 void onTableTest(void){
   int * createVal = create(5);
-  bool retVal = onTable(0, createVal);
+  bool retVal = onTable(0, createVal, 5);
   CU_ASSERT_EQUAL(retVal, false);
-  retVal = onTable(3, createVal);
+  retVal = onTable(3, createVal, 5);
   CU_ASSERT_EQUAL(retVal, true);
-  retVal = onTable(6, createVal);
+  retVal = onTable(6, createVal, 5);
   CU_ASSERT_EQUAL(retVal, false);
-  createVal = move(1,2, createVal);
-  retVal = onTable(1, createVal);
+  createVal = move(1,2, createVal, 5);
+  retVal = onTable(1, createVal, 5);
   CU_ASSERT_EQUAL(retVal, false);
-  retVal = onTable(2, createVal);
-  CU_ASSERT_EQUAL(retVal, true);
+  retVal = onTable(2, createVal, 5);
+  CU_ASSERT_EQUAL(retVal, false);   
   
 }
 
 void openTest(void){
   int * createVal = create(5);
-  bool retVal = open(0, createVal);
+  bool retVal = open(0, createVal, 5);
   CU_ASSERT_EQUAL(retVal, true);
   for(int x = 0; x < 5; x++){
-    retVal = open(x, createVal);
+    retVal = open(x, createVal, 5);
     CU_ASSERT_EQUAL(retVal, true);
   }
-  createVal = move(2,3, createVal);
-  retVal = open(3, createVal);
-  CU_ASSERT_EQUAL(retVal, false);
-
+  createVal = move(2,3, createVal, 5);
+  retVal = open(3, createVal, 5);
+  CU_ASSERT_EQUAL(retVal, false); 
+   
 }
 
 void onTest(void){
   int * createVal = create(5);
-  int retVal = on(6, createVal);
+  int retVal = on(6, createVal, 5);
   CU_ASSERT_EQUAL(retVal, 6);
   for(int x = 0; x < 5; x++){
-    retVal = on(x, createVal);
+    retVal = on(x, createVal, 5);
     CU_ASSERT_EQUAL(retVal, 0);
   }
-  createVal = move(2,3, createVal);
-  retVal = on(2, createVal);
+  createVal = move(2,3, createVal, 5 );
+  retVal = on(2, createVal, 5);
   CU_ASSERT_EQUAL(retVal, 3);
-
+   
 }
 
 void aboveTest(void){
   int * createVal = create(5);
-  bool retVal = above(1,2, createVal);
+  bool retVal = above(1,2, createVal, 5);
   CU_ASSERT_EQUAL(retVal, false);
-  createVal = move(1,2, createVal);
-  retVal = above(1,2, createVal);
+  createVal = move(1,2, createVal, 5);
+  retVal = above(1,2, createVal, 5);
   CU_ASSERT_EQUAL(retVal, true);
   
 }
@@ -97,7 +97,7 @@ int main()
       ||(NULL == CU_add_test(Suite, "on table test", onTableTest))
       ||(NULL == CU_add_test(Suite, "open test", openTest))
       ||(NULL == CU_add_test(Suite, "on test", onTest))
-      ||(NULL == CU_add_test(Suite, "above test", aboveTest))
+      ||(NULL == CU_add_test(Suite, "above test", aboveTest)) 
 
 
 
