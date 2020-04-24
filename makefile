@@ -25,6 +25,9 @@ debug : $(objects) runner.c
 tests : ${testObjects} tests.o
 	$(CC) -g -Wall -O0 -fprofile-arcs -ftest-coverage -std=c11 -lm -L $(CUNIT_PATH_PREFIX)lib -I $(CUNIT_PATH_PREFIX)include/$(CUNIT_DIRECTORY) -o tests ${testObjects} tests.o -lcunit
 
+pyramiddebug: pyramid.o runner.o runner.c
+	$(CC) -g -lm -Wall -lgcov --coverage -std=c11 -o run.debug pyramid.o runner.o
+
 tests.o : tests.c
 	$(CC) $(FLAGS) -I $(CUNIT_PATH_PREFIX)include/$(CUNIT_DIRECTORY) tests.c
 
@@ -33,6 +36,9 @@ runner.o : runner.c
 
 blocksWorld.o : blocksWorld.c
 	$(CC) $(FLAGS) blocksWorld.c
+
+pyramid.o: pyramid.c
+	$(CC) $(FLAGS) pyramid.c
 
 clean :
 	rm -fv run $(objects) tests tests.o run.debug *~
