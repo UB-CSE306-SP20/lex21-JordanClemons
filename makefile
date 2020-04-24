@@ -40,5 +40,18 @@ blocksWorld.o : blocksWorld.c
 pyramid.o: pyramid.c
 	$(CC) $(FLAGS) pyramid.c
 
+.PHONY: andRunCallGrind
+andRunCallGrind:
+	make clean
+	make runner
+	@echo "******************************************************************************"
+	@echo "** Running program on large file using callgrind. This may take a minute... **"
+	@echo "******************************************************************************"
+	valgrind --tool=callgrind ./run 1000 1000
+	@echo "******************************************************************************"
+	@echo "** Done! Use callgrind_annotate to interpret the data file                  **"
+	@echo "******************************************************************************"
+
+
 clean :
 	rm -fv run $(objects) tests tests.o run.debug *~
