@@ -49,3 +49,7 @@ void move(int m, int n) {
   }
   
 }
+
+void cleanMem(int n){
+  free(world);
+}
