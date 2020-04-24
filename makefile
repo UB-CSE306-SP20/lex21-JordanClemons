@@ -43,11 +43,11 @@ pyramid.o: pyramid.c
 .PHONY: andRunCallGrind
 andRunCallGrind:
 	make clean
-	make runner
+	make pyramiddebug
 	@echo "******************************************************************************"
 	@echo "** Running program on large file using callgrind. This may take a minute... **"
 	@echo "******************************************************************************"
-	valgrind --tool=callgrind ./run 1000 1000
+	valgrind --tool=callgrind ./run.debug 1000 1000
 	@echo "******************************************************************************"
 	@echo "** Done! Use callgrind_annotate to interpret the data file                  **"
 	@echo "******************************************************************************"
